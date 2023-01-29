@@ -1,0 +1,7 @@
+{
+    "name" : "leboncoin",
+        "dbname" : "ecommerce",
+        "host" : "localhost",
+        "user" : "root",
+        "password" : ""
+}
