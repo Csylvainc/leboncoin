@@ -5,32 +5,32 @@ namespace Models;
 use PDO;
 use App\Db;
 
-class UsersModel extends Db{
-    // ////////////////////////////////////////// Méthodes de lectures ////////////////////////////////////////////
+class CategoriesModel extends Db{
+     // ////////////////////////////////////////// Méthodes de lectures ////////////////////////////////////////////
 
-    // Trouver tous les utlisateurs
+    // Trouver toutes les catégories
     public static function findAll(){
-        $request = "SELECT * FROM users";
+        $request = "SELECT * FROM categories";
         $response = self::getDb()->prepare($request);
         $response->execute();
        
        return $response->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    // Trouver un utilisateur par id
+    // Trouver une catégories par id
     public static function findById(array $id){
-        $request = "SELECT * FROM users WHERE id = ?";
+        $request = "SELECT * FROM categories WHERE idCat = ?";
         $response = self::getDb()->prepare($request);
         $response->execute($id);
 
         return $response->fetch(PDO::FETCH_ASSOC);    
     }
 
-    // Trouver un utilisateur par login
-    public static function findByLogin(array $login){
-        $request = "SELECT * FROM users WHERE login = ?";
+    // Trouver une catégorie par nom
+    public static function findByName(array $name){
+        $request = "SELECT * FROM categories WHERE nameCat = ?";
         $response = self::getDb()->prepare($request);
-        $response->execute($login);
+        $response->execute($name);
 
         return $response->fetch(PDO::FETCH_ASSOC);    
     }
@@ -40,7 +40,7 @@ class UsersModel extends Db{
 
     // Créer un nouvel utilisateur
     public static function create(array $data){
-        $request = "INSERT INTO users (login, password, firstName) VALUES (?, ?, ?)";
+        $request = "INSERT INTO categories (nameCat) VALUES (?)";
         $response = self::getDb()->prepare($request);
         $response->execute($data);
 
@@ -49,7 +49,7 @@ class UsersModel extends Db{
 
     // Modification d'un utilisateur
     public static function update(array $data, int $id){
-        $request = "UPDATE users SET login = ?, password = ?, firstName = ? WHERE id = $id";
+        $request = "UPDATE categories SET nameCat = ? WHERE idCat = $id";
         $response = self::getDb()->prepare($request);
         $response->execute($data);
     }
@@ -57,7 +57,7 @@ class UsersModel extends Db{
     // /////////////////////////////////////// Méthode de suppression /////////////////////////////////////////////////////////
 
     public static function delete(array $id){
-        $request = "DELETE FROM users WHERE id = ?";
+        $request = "DELETE FROM categories WHERE idCat = ?";
         $response = self::getDb()->prepare($request);
         
         return $response->execute($id);

@@ -1,11 +1,13 @@
 <?php
 
+use Models\CategoriesModel;
 use Models\ProductsModel;
+use Models\UsersModel;
 
 require_once('autoload.php');
 
 // Test findAll categorie
-$test = ProductsModel::findAll("price ASC");
+$test = ProductsModel::findAll(null, " LIMIT 3");
 var_dump($test);
 
 // Test findById 
@@ -34,3 +36,18 @@ var_dump($test3);
 // Test suppression d'un proudit
 // $id = [5];
 // $testDelete = ProductsModel::delete($id);
+
+// test user update Admin hashage du password
+$pass = password_hash("1234", PASSWORD_DEFAULT);
+// $upAdmin = ['admin@admin.fr',$pass, "administrateur"];
+// $up = UsersModel::update($upAdmin,1);
+
+// test new user
+// $newUserData = ['sylvain@gmail.com',$pass,"sylvain"];
+// $newUser = UsersModel::create($newUserData);
+
+
+// Test categories
+
+// $newCatData = ["Jardin"];
+// $newCat = CategoriesModel::create($newCatData);

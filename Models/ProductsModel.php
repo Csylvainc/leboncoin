@@ -11,11 +11,11 @@ class ProductsModel extends Db{
     // ////////////////////////////////////////// Méthodes de lectures ////////////////////////////////////////////
 
     // Trouver tous les produits
-    public static function findAll(string $order = null){
+    public static function findAll(string $order = null, string $limit = null){
         if($order === null){
-            $request = "SELECT * FROM products INNER JOIN categories ON  products.idCategorie = categories.idCat";
+            $request = "SELECT * FROM products INNER JOIN categories ON  products.idCategorie = categories.idCat " . $limit;
         }else{
-            $request = "SELECT * FROM products INNER JOIN categories ON  products.idCategorie = categories.idCat ORDER BY " . $order;
+            $request = "SELECT * FROM products INNER JOIN categories ON  products.idCategorie = categories.idCat ORDER BY " . $order . $limit;
         }
        $response = self::getDb()->prepare($request);
        $response->execute();

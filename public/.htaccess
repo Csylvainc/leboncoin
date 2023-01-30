@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteBase /
+#si ce n'est pas un répertoire
+RewriteCond %{REQUEST_FILENAME} !-d
+# Si ce n'est pas un fichier
+RewriteCond %{REQUEST_FILENAME} !-f
+# Modifier cette ligne au momnt de la mise en prod
+#Pour les mac users
+RewriteRule ^(.+)$ leboncoin/public/index.php [QSA,L]
+
+#RewriteRule ^(.+)$ index.php [QSA,L]
