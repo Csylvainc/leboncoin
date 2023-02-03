@@ -3,7 +3,9 @@ namespace App;
 
 use Controllers\Controller;
 use Controllers\ProductsController;
+use Controllers\UsersController;
 use Models\CategoriesModel;
+use Models\ProductsModel;
 
 class Routeur{
     public function app(){
@@ -55,7 +57,12 @@ class Routeur{
                 }
                 break;
             case '/productDetail':
-                echo "page produits détail";
+                // echo "page produits détail";
+                $oneProduct = new ProductsController;
+                if (isset($_GET['id'])) {
+                    $id =(int)$_GET['id'];
+                    $oneProduct->detailProduct($id);
+                }
                 break;
             case '/productAjout':
                 echo 'page ajout product';
@@ -64,7 +71,9 @@ class Routeur{
                 echo "page panier";
                 break;
             case '/inscription':
-                echo "page inscription";
+                // echo "page inscription";
+                $inscription = new UsersController;
+                $inscription->inscription();
                 break;
             case '/connexion':
                 echo "page de connexion";

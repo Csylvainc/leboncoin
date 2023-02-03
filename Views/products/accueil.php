@@ -18,7 +18,7 @@
         <p class="card-text">Description : <br><?= $product['description'] ?></p>
       </div>
       <div class="card-footer text-center">
-        <a href="" class="btn btn-secondary shadow">Voir le détail</a>
+        <a href="productDetail?id=<?= $product['id'] ?>" class="btn btn-secondary shadow">Voir le détail</a>
       </div>
     </div>
     <?php endforeach ?>

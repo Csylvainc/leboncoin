@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap');
-
+*{
+    box-sizing: border-box;
+}
 h1, h2,h3,h4 {
     font-family: 'Courgette', cursive;
+}
+
+
+/* Zoom des images sur le détail des produits */
+.zoom{
+    border : 1 solid black;
+}
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(2); rotate : 20deg; border-radius: 20px; }
+
+/* Affichage des prix sur detail produit */
+
+.price{
+    font-family: 'Courgette', cursive;
+    font-style: italic;
+    font-size: 35px;
+    color: blueviolet;
 }

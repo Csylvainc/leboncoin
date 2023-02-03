@@ -4,9 +4,11 @@
 // var_dump($categories);
 // var_dump($_GET);
 ?>
-
-<h2 class="m-4 text-center">Tous les produits</h2>
-
+<?php if (!isset($_GET['idCategorie'])) : ?>
+    <h2 class="m-4 text-center">Toutes les catégories</h2>
+<?php else : ?>
+    <h2 class="m-4 text-center">Produits de la catégorie : <?= $products[0]['nameCat'] ?></h2> <!-- Attention si pas de produit alors erreur php pas joli -->
+<?php endif ?>
 <div class="row">
     <div class="col-12 col-md-2">
         <form method="GET">
@@ -41,7 +43,7 @@
             <p class="card-text">Description : <br><?= $product['description'] ?></p>
           </div>
           <div class="card-footer text-center">
-            <a href="" class="btn btn-secondary shadow">Voir le détail</a>
+            <a href="productDetail?id=<?= $product['id'] ?>" class="btn btn-secondary shadow">détail <?= $product['name'] ?></a>
           </div>
         </div>
         <?php endforeach ?>

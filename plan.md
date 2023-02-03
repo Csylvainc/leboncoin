@@ -1,3 +1,7 @@
+0/ Création de la BDD
+
+
+
 1/ Création de l'arborescence
 
 2/ autoload.php
@@ -26,3 +30,10 @@
 11/ Création du ProductsController.php
     methode accueil()
     méthode allproducts()
+    méthode detailProduct() et de la vue detailProduct
+    Ajout de la route
+
+12/ Gestion des utilisateurs et de la connexion
+    1 - Création de UsersController
+    1 - Inscription vue inscription dans users et route dans routeur
+    2 - Login

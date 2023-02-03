@@ -36,4 +36,16 @@ class ProductsController extends Controller{
             'categories' => $categories
         ]);
     }
+
+    // Méthode pour afficher un seul produit
+    public function detailProduct($id){
+        $id = [$id];
+        $productsModel = new ProductsModel;
+        $product = $productsModel->findById($id);
+
+        $this->render('products/detailProduct', [
+            'title' => 'Détail du produit',
+            'product' => $product
+        ]);
+    }
 }
