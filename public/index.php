@@ -2,6 +2,10 @@
 
 use App\Routeur;
 
+// Apres avoir créer le formulaire d'inscription
+session_start();
+// FIN Apres le formulaire d'inscription
+
 // On definit une constante pour avoir le dossier racine du projet
 define('ROOT', dirname(__DIR__));
 

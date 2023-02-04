@@ -18,7 +18,7 @@ class UsersModel extends Db{
     }
     
     // Trouver un utilisateur par id
-    public static function findById(array $id){
+    public static function findById(array $id){ // execute n'accepte qu'un tableau
         $request = "SELECT * FROM users WHERE id = ?";
         $response = self::getDb()->prepare($request);
         $response->execute($id);

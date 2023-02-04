@@ -15,7 +15,7 @@ class ProductsModel extends Db{
         if($order === null){
             $request = "SELECT * FROM products INNER JOIN categories ON  products.idCategorie = categories.idCat " . $limit;
         }else{
-            $request = "SELECT * FROM products INNER JOIN categories ON  products.idCategorie = categories.idCat ORDER BY " . $order . $limit;
+            $request = "SELECT * FROM products INNER JOIN categories ON  products.idCategorie = categories.idCat ORDER BY " . $order . " "  . $limit;
         }
        $response = self::getDb()->prepare($request);
        $response->execute();
@@ -30,6 +30,15 @@ class ProductsModel extends Db{
         $response->execute($id);
 
         return $response->fetch(PDO::FETCH_ASSOC);    
+    }
+
+    // Trouver les produits d'un utilisateur
+    public static function findByUser($idUser){
+        $request = "SELECT * FROM products INNER JOIN categories ON  products.idCategorie = categories.idCat WHERE idUser = ?";
+        $response = self::getDb()->prepare($request);
+        $response->execute($idUser);
+
+        return $response->fetchAll(PDO::FETCH_ASSOC);
     }
 
     // Trouver un ou plusieurs produits par catégorie

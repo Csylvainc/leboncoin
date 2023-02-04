@@ -2,7 +2,28 @@
 //  var_dump($products);
 
 ?>
-
+<!-- Pas avant le traitement de la connexion -->
+<?php
+    // var_dump($_SESSION);
+if (isset($_SESSION['messages'])) {
+    $message = $_SESSION['messages'];
+    unset($_SESSION['messages']);
+  if (isset($_SESSION['user'])) {
+    echo '<div class="alert alert-dismissible alert-info">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <h4 class="alert-heading">Bonjour ' . $_SESSION['user']['firstName'] . '</h4>
+    <p class="mb-0">' . $message . '</p>
+</div>';
+  }else{
+    echo '<div class="alert alert-dismissible alert-info">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <h4 class="alert-heading">' . $message . '</h4>
+    <p class="mb-0">Nous esperons que votre viste vous a plu</p>
+</div>';
+  }
+}
+?>
+<!-- FIN Pas avant le traitement de la connexion -->
 
 <h2 class="mt-4 lead">Les derniers produits mit en ligne</h2>
 

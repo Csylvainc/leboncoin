@@ -4,10 +4,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         <h4 class="alert-heading">Attention!</h4>
         <p class="mb-0"><?= $errMsg ?></p>
-        <?php echo 'test'; ?> 
     </div>
 <?php endif ?>
-<!-- Pas avant le traitement du form -->
+<!-- FIN Pas avant le traitement du form -->
 
 
 <div class="container-fluid">

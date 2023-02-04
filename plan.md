@@ -37,3 +37,15 @@
     1 - Création de UsersController
     1 - Inscription vue inscription dans users et route dans routeur
     2 - Login
+    3 - Deconnexion juste routeur
+
+    4 - Modification du menu de navigation
+
+
+13/ Création du profil utilisateur
+
+14/ Création de l'ajout de produit
+15/ Création de la modification de produit
+16/ Suppression de produit
+
+17/ Panier

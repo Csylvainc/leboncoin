@@ -65,7 +65,32 @@ class Routeur{
                 }
                 break;
             case '/productAjout':
-                echo 'page ajout product';
+                // echo 'page ajout product';
+                if (isset($_SESSION['user']['id'])) {
+                   $ajoutProduct = new ProductsController;
+                   $ajoutProduct->ajouter();
+                }else{
+                    header('Location: /' . SITEBASE);
+                }
+                break;
+            case '/productModif':
+                // echo 'page modif produit';
+                if (isset($_SESSION['user']['id'])) {
+                    $ajoutProduct = new ProductsController;
+                    $id = $_GET['id'];
+                    $ajoutProduct->modifier($id);
+                 }else{
+                     header('Location: /' . SITEBASE);
+                 }
+                break;
+            case '/productSupp':
+                if (isset($_SESSION['user']['id'])) {
+                    $ajoutProduct = new ProductsController;
+                    $id = $_GET['id'];
+                    $ajoutProduct->supprimer($id);
+                 }else{
+                     header('Location: /' . SITEBASE);
+                 }
                 break;
             case '/panier':
                 echo "page panier";
@@ -76,13 +101,26 @@ class Routeur{
                 $inscription->inscription();
                 break;
             case '/connexion':
-                echo "page de connexion";
+                // echo "page de connexion";
+                $connexion = new UsersController;
+                $connexion->connexion();
                 break;
             case '/deconnexion':
-                echo "page de deconnexion";
+                // echo "page de deconnexion";
+                // Pour deconnecter un utilisateur il suffit de supprimer user de la session
+                unset($_SESSION['user']);
+                // On redirige vers la page d'accueil
+                $_SESSION['messages'] = "A bientôt";
+                header('Location: /' . SITEBASE);
                 break;
             case '/profil':
-                echo "page de profil";
+                // echo "page de profil";
+                if (isset($_SESSION['user'])) {
+                    $profil = new UsersController;
+                    $profil->profil();
+                }else{
+                    header('Location: connexion');
+                }
                 break;
             case '/about':
                 echo "page à propos";

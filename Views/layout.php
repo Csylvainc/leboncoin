@@ -7,6 +7,8 @@
     <!-- Modifier pour rendre dynamique -->
     <title><?= $title ?></title>
     <link rel="stylesheet" href="https://bootswatch.com/5/minty/bootstrap.min.css">
+    <!-- CDN icon bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../public/css/style.css">
 </head>
 
@@ -30,8 +32,22 @@
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-sm-2" type="search" placeholder="Search">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
                 </form>
+                <ul class="navbar-nav ml-auto">
+                    <?php if (isset($_SESSION['user'])) : ?>
+                        <li class="nav-item">
+                        <span class="mx-2">Bonjour <?= $_SESSION['user']['firstName'] ?></span> <a href="profil" class="btn btn-secondary mx-2 my-2 my-sm-0">profil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="deconnexion" class="btn btn-secondary mx-2 my-2 my-sm-0">deconnexion</a>
+                        </li>
+                    <?php else : ?>
+                        <li class="nav-item">
+                            <a href="connexion" class="btn btn-secondary mx-2 my-2 my-sm-0">connexion</a>
+                        </li>
+                    <?php endif ?>
+                </ul>
             </div>
         </div>
     </nav>
