@@ -15,7 +15,7 @@
         </div>
         <div class="card-footer bg-primary text-center">
             <p><span class="price"><?= $product['price'] ?> €</span></p>
-            <a href="panier?<?= $product['id'] ?>" class="btn btn-secondary">Ajouter au panier</a>
+            <a href="panier?opp=ajout&id=<?= $product['id'] ?>" class="btn btn-secondary">Ajouter au panier</a>
         </div>
     </div>
 

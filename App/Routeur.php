@@ -70,6 +70,7 @@ class Routeur{
                    $ajoutProduct = new ProductsController;
                    $ajoutProduct->ajouter();
                 }else{
+                    $_SESSION['messages'] = 'vous devez être connecté';
                     header('Location: /' . SITEBASE);
                 }
                 break;
