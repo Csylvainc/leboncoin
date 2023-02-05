@@ -27,7 +27,7 @@
     </div>
     <div class="mt-3">
         <label for="photo" class="form-label">Photo</label>
-        <p>Si vide nous conservons l'encienne <img src="../public/images/products/<?= $product['image'] ?>" alt="" class="imgTab"></p>
+        <p>Si vide nous conservons l'ancienne <img src="../public/images/products/<?= $product['image'] ?>" alt="" class="imgTab"></p>
         <input type="file" name="photo" id="photo" class="form-control">
         <small id="photo" class="form-text text-muted">(max 3Mo, format accepté: jpg, jpeg, png)</small>
     </div>

@@ -2,6 +2,7 @@
 namespace App;
 
 use Controllers\Controller;
+use Controllers\PanierController;
 use Controllers\ProductsController;
 use Controllers\UsersController;
 use Models\CategoriesModel;
@@ -94,7 +95,34 @@ class Routeur{
                  }
                 break;
             case '/panier':
-                echo "page panier";
+                // echo "page panier";
+                // Pas avant la gestion du panier
+                // Gestion des trois opération (ajout, suppression, affichage)
+                $panier = new PanierController;
+                switch ($_GET['opp']) {
+                    case 'ajout':
+                        if (isset($_GET['id']) && isset($_GET['name']) && isset($_GET['price']) && isset($_GET['photo'])) {
+                            $id = $_GET['id'];
+                            $name = $_GET['name'];
+                            $price = $_GET['price'];
+                            $photo = $_GET['photo'];
+                            $panier->ajouter($id,$name,$price,$photo);
+                        }
+                        break;
+                    case 'supp':
+                        if (isset($_GET['id'])) {
+                            $id = $_GET['id'];
+                            $panier->supprimer($id);
+                        }
+                        break;
+                    case 'affiche':
+                        $panier->afficher();
+                        break;
+                    default:
+                        header('Location: /' . SITEBASE);
+                        break;
+                }
+                // Fin pas avant la gestion du panier
                 break;
             case '/inscription':
                 // echo "page inscription";

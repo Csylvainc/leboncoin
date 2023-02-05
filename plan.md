@@ -52,3 +52,5 @@
     1 - création du controlleur Panier juste avec les commentaires et de la vue vide
     2 - Modification du bouton ajout panier dans detailProduct
 
+    3 - Ajout du lien vers le panier dans le menu de navigation
+

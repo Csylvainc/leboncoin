@@ -30,10 +30,6 @@
                         <a class="nav-link" href="products">Tous les produits</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-sm-2" type="search" placeholder="Search">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
-                </form>
                 <ul class="navbar-nav ml-auto">
                     <?php if (isset($_SESSION['user'])) : ?>
                         <li class="nav-item">
@@ -45,6 +41,11 @@
                     <?php else : ?>
                         <li class="nav-item">
                             <a href="connexion" class="btn btn-secondary mx-2 my-2 my-sm-0">connexion</a>
+                        </li>
+                    <?php endif ?>
+                    <?php if(isset($_SESSION['panier'])) : ?>
+                        <li class="nav-item">
+                            <a href="panier?opp=affiche" class="btn btn-secondary"><i class="bi bi-cart"></i><span class="small"><?= count($_SESSION['panier']) ?></span></a>
                         </li>
                     <?php endif ?>
                 </ul>
